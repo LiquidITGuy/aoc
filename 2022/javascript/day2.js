@@ -57,12 +57,12 @@ const getPointsOfDuel = (player1Choice, player2Choice, ROUND_SCORE) => {
 	return [looseScore, winScore]
 }
 
-const getPointsOfCards = (player1Choice, player2Choice, GESTURE_SCORE) => {
+const getPointsOfShapes = (player1Choice, player2Choice, GESTURE_SCORE) => {
 	return [GESTURE_SCORE[player1Choice], GESTURE_SCORE[player2Choice]]
 }
 
 const getPointsOfRound =  (player1Choice, player2Choice, SCORE) => {
-	const [player1ShapeScore, player2ShapeScore] = getPointsOfCards(player1Choice, player2Choice, SCORE.GESTURE)
+	const [player1ShapeScore, player2ShapeScore] = getPointsOfShapes(player1Choice, player2Choice, SCORE.GESTURE)
 	const [player1DuelScore, player2DuelScore] = getPointsOfDuel(player1Choice, player2Choice, SCORE.ROUND)
 	return [player1ShapeScore + player1DuelScore, player2ShapeScore + player2DuelScore ]
 }
@@ -118,7 +118,7 @@ class Board {
 	}
 }
 
-const init = async (filename) => {
+const init = async (filename, convertInput) => {
 	const board = new Board()
 	const reader = readline.createInterface({
 		input: createReadStream(filename),
@@ -127,8 +127,7 @@ const init = async (filename) => {
 
 	reader.on('line', (line) => {
 		const [player1ChoiceInput, player2ChoiceInput] = line.split(CHOICE_SEPARATOR)
-		const player1Choice = PLAYERS_INPUT_CONVERSION(player1ChoiceInput)
-		const player2Choice = PLAYERS_INPUT_CONVERSION(player2ChoiceInput)
+		const [player1Choice, player2Choice] = convertInput(player1ChoiceInput, player2ChoiceInput)
 		board.play(player1Choice, player2Choice)
 	})
 	await events.once(reader, 'close')
@@ -137,9 +136,11 @@ const init = async (filename) => {
 
 
 const run = async (filename = DEFAULT_FILE) => {
-	const board = await init(filename)
+	const convertInput = (playerOneInput, playerTwoInput) => [PLAYERS_INPUT_CONVERSION(playerOneInput), PLAYERS_INPUT_CONVERSION(playerTwoInput)]
+	const board = await init(filename, convertInput)
 	return board.player2score
 }
+
 
 const runs = [run]
 module.exports = { runs }
