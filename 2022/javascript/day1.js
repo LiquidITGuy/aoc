@@ -25,10 +25,18 @@ const init = async (filename) => {
 	await events.once(reader, 'close')
 	return caloriesOwnedByElfs
 }
+
+const byBiggestValue = (firstValue, secondValue) => secondValue-firstValue
 const run = async (filename = DEFAULT_FILE) => {
 	const elfsCalories = await init(filename)
 	const maxCalories = Math.max(...elfsCalories)
 	return maxCalories
 }
-const runs = [run]
+const run2 = async (filename = DEFAULT_FILE) => {
+	const elfsCalories = await init(filename)
+	elfsCalories.sort(byBiggestValue)
+	const [richest, second, third] = elfsCalories
+	return richest + second + third
+}
+const runs = [run, run2]
 module.exports = { runs }

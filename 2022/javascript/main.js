@@ -34,13 +34,13 @@ if (!sanitizedDay || isNaN(Number(sanitizedDay)) || !methods[sanitizedDay]) {
 const displayResult = async (day, file) => {
 	console.group(`day ${day}`)
 	let index = 1
-		for (method of (methods[day].runs)) {
-			console.group(`${DISPLAY_PART[index]} part`)
-			const result = await method(file)
-			console.log(result)
-			console.groupEnd()
-			index++
-		}
+	for (const method of (methods[day].runs)) {
+		console.group(`${DISPLAY_PART[index]} part`)
+		const result = await method(file)
+		console.log(result)
+		console.groupEnd()
+		index++
+	}
 	console.groupEnd()
 }
 
