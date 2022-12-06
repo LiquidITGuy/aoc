@@ -15,7 +15,7 @@ const CHOICES = {
 const POSSIBILITIES = {
 	LOOSE: 'LOOSE',
 	DRAW: 'DRAW',
-	WIN: 'WIN'
+	WIN: 'WIN',
 }
 
 const SCORE = {
@@ -44,7 +44,7 @@ const hasPlayerOneWin = (player1Choice, player2Choice) => {
 	return false
 }
 
-getPointsOfDuel = (player1Choice, player2Choice, ROUND_SCORE) => {
+const getPointsOfDuel = (player1Choice, player2Choice, ROUND_SCORE) => {
 	const drawScore = ROUND_SCORE[[`${POSSIBILITIES.DRAW}`]]
 	const winScore = ROUND_SCORE[[`${POSSIBILITIES.WIN}`]]
 	const looseScore = ROUND_SCORE[[`${POSSIBILITIES.LOOSE}`]]
@@ -57,11 +57,11 @@ getPointsOfDuel = (player1Choice, player2Choice, ROUND_SCORE) => {
 	return [looseScore, winScore]
 }
 
-getPointsOfCards = (player1Choice, player2Choice, GESTURE_SCORE) => {
+const getPointsOfCards = (player1Choice, player2Choice, GESTURE_SCORE) => {
 	return [GESTURE_SCORE[player1Choice], GESTURE_SCORE[player2Choice]]
 }
 
-getPointsOfRound =  (player1Choice, player2Choice, SCORE) => {
+const getPointsOfRound =  (player1Choice, player2Choice, SCORE) => {
 	const [player1ShapeScore, player2ShapeScore] = getPointsOfCards(player1Choice, player2Choice, SCORE.GESTURE)
 	const [player1DuelScore, player2DuelScore] = getPointsOfDuel(player1Choice, player2Choice, SCORE.ROUND)
 	return [player1ShapeScore + player1DuelScore, player2ShapeScore + player2DuelScore ]
@@ -69,18 +69,18 @@ getPointsOfRound =  (player1Choice, player2Choice, SCORE) => {
 
 const PLAYERS_INPUT_CONVERSION = (choice) => {
 	switch (choice) {
-		case 'A':
-			return CHOICES.ROCK
-		case 'B':
-			return CHOICES.PAPER
-		case 'C':
-			return CHOICES.SCISSORS
-		case 'X':
-			return CHOICES.ROCK
-		case 'Y':
-			return CHOICES.PAPER
-		case 'Z':
-			return CHOICES.SCISSORS
+	case 'A':
+		return CHOICES.ROCK
+	case 'B':
+		return CHOICES.PAPER
+	case 'C':
+		return CHOICES.SCISSORS
+	case 'X':
+		return CHOICES.ROCK
+	case 'Y':
+		return CHOICES.PAPER
+	case 'Z':
+		return CHOICES.SCISSORS
 	}
 }
 
@@ -94,10 +94,10 @@ const DEFAULT_RULES = {
 class Board {
 	constructor(RULES = DEFAULT_RULES) {
 		this.player1 = {
-			score: RULES.INITIAL_SCORE
+			score: RULES.INITIAL_SCORE,
 		}
 		this.player2 = {
-			score: RULES.INITIAL_SCORE
+			score: RULES.INITIAL_SCORE,
 		}
 		this.RULES = RULES
 	}
@@ -119,7 +119,7 @@ class Board {
 }
 
 const init = async (filename) => {
-	const board = new Board();
+	const board = new Board()
 	const reader = readline.createInterface({
 		input: createReadStream(filename),
 		crlfDelay: Infinity,
