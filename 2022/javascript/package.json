@@ -1,0 +1,28 @@
+{
+  "name": "aoc-liquidit",
+  "version": "0.0.1",
+  "scripts": {
+    "test": "jest",
+    "start": "node main.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix ."
+  },
+  "description": "Advent of Code challenge testing",
+  "main": "index.js",
+  "repository": "https://github.com/LiquidITGuy/aoc",
+  "author": {
+    "name": "Simon Belbeoch",
+    "email": "simon.belbeoch@ln1.eu",
+    "url": "https://github.com/LiquidITGuy"
+  },
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "eslint": "^8.29.0",
+    "jest": "^29.3.1"
+  },
+  "volta": {
+    "node": "18.12.1",
+    "yarn": "3.3.0"
+  }
+}

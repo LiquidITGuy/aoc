@@ -1,0 +1,43 @@
+{
+    "env": {
+        "commonjs": true,
+        "es2021": true,
+        "node": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "ecmaVersion": "latest"
+    },
+    "rules": {
+        "indent": [
+            "error",
+            "tab"
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "never"
+        ],
+        "comma-dangle": ["error", "always-multiline"],
+        "complexity": ["error", 10],
+        "max-depth": ["error", 2],
+        "object-curly-spacing": ["error", "always"]
+    },
+    "overrides": [
+        {
+            "files": [
+                "**/*.test.js"
+            ],
+            "env": {
+                "jest": true
+            }
+        }
+    ]
+}
