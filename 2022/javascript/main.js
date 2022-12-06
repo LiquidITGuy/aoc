@@ -6,6 +6,9 @@ const methods = {
 	1: {
 		runs: require('./day1').runs,
 	},
+	2: {
+		runs: require('./day2').runs,
+	},
 }
 
 const DISPLAY_PART = {
