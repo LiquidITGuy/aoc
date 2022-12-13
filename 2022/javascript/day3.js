@@ -16,7 +16,7 @@ const findLettersInCommon = (stringsArray) => {
 	const lastString = retrieveOnlyUniqueChars(stringsArray.pop()).split('')
 	return stringsArray.reduce((currentCommonString, stringToEvaluate) =>
 		currentCommonString
-		.filter(char => retrieveOnlyUniqueChars(stringToEvaluate).includes(char)),
+			.filter(char => retrieveOnlyUniqueChars(stringToEvaluate).includes(char)),
 	lastString)
 }
 

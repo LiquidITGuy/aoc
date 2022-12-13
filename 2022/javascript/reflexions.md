@@ -16,3 +16,13 @@ I choose to keep the principle of a board game with two players input, so I will
 
 ## Break
 I had to make a break since few days. So now I will keep the challenge and extend it until january the 13 one solve by day
+
+### Part 3
+No reflexion for this part I just made a refactoring to use reduce and optimize my code
+
+### Part 4
+For this challenge I choose to split the initialization and the run. Regarding the last days I'm disappointed with the code duplication.
+This time I choose a more reusable code instead of a more performance one.
+I will do fot his time a mix of class and fp (not so cool to read) but it will be usefull to choose my next days style.
+
+It seems that's I didn't fully understand the rules in my first guess (current commit if you want to check), my guess is 507.
