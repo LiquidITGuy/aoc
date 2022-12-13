@@ -13,12 +13,10 @@ const splitIntoSameSizeParts = (stringToSplit, nbParts= 2) => [
 ]
 
 const findLettersInCommon = (stringsArray) => {
-	const lastString = retrieveOnlyUniqueChars(stringsArray.pop())
+	const lastString = retrieveOnlyUniqueChars(stringsArray.pop()).split('')
 	return stringsArray.reduce((currentCommonString, stringToEvaluate) =>
 		currentCommonString
-			.split('')
-			.filter(char => retrieveOnlyUniqueChars(stringToEvaluate).includes(char))
-			.join(''),
+		.filter(char => retrieveOnlyUniqueChars(stringToEvaluate).includes(char)),
 	lastString)
 }
 
