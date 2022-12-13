@@ -12,18 +12,15 @@ const splitIntoSameSizeParts = (stringToSplit, nbParts= 2) => [
 	stringToSplit.slice(-stringToSplit.length/nbParts),
 ]
 
-const findLetterInCommon = ([firstString, secondString]) =>
-	firstString
-		.split('')
-		.find(letter =>
-			secondString.includes(letter),
-		)
-const findAllLettersInCommon = ([firstString, secondString]) =>
-	firstString
-		.split('')
-		.filter(letter =>
-			secondString.includes(letter),
-		)
+const findLettersInCommon = (stringsArray) => {
+	const lastString = retrieveOnlyUniqueChars(stringsArray.pop())
+	return stringsArray.reduce((currentCommonString, stringToEvaluate) =>
+		currentCommonString
+			.split('')
+			.filter(char => retrieveOnlyUniqueChars(stringToEvaluate).includes(char))
+			.join(''),
+	lastString)
+}
 
 
 const init = async (filename) => {
@@ -35,7 +32,7 @@ const init = async (filename) => {
 
 	reader.on('line', (line) => {
 		const compartments = splitIntoSameSizeParts(line)
-		const letter = findLetterInCommon(compartments)
+		const letter = findLettersInCommon(compartments)[0]
 		const priority = priorityOfLetter(letter)
 		totalPriority+=priority
 	})
@@ -45,7 +42,7 @@ const init = async (filename) => {
 
 const retrieveOnlyUniqueChars = string => [...new Set(string)].join('')
 const init2 = async (filename) => {
-	const itemsForAGroup = []
+	let itemsForAGroup = []
 	let totalPriority = 0
 	const reader = readline.createInterface({
 		input: createReadStream(filename),
@@ -55,10 +52,11 @@ const init2 = async (filename) => {
 	reader.on('line', (line) => {
 		itemsForAGroup.push(retrieveOnlyUniqueChars(line))
 		if(itemsForAGroup.length % NUMBER_OF_LINE_BY_ELF === 0) {
-			const firstLettersInCommon = findAllLettersInCommon([itemsForAGroup.pop(), itemsForAGroup.pop()]).join('')
-			const letter = findLetterInCommon([firstLettersInCommon, itemsForAGroup.pop()])
+			const lettersInCommon = findLettersInCommon(itemsForAGroup)
+			const letter = lettersInCommon[0]
 			const priority = priorityOfLetter(letter)
 			totalPriority += priority
+			itemsForAGroup = []
 		}
 	})
 	await events.once(reader, 'close')
@@ -75,4 +73,4 @@ const run2 =  async (filename = DEFAULT_FILE) => {
 }
 
 const runs = [run, run2]
-module.exports = { runs, splitIntoSameSizeParts, findLetterInCommon, priorityOfLetter }
+module.exports = { runs, splitIntoSameSizeParts, priorityOfLetter }

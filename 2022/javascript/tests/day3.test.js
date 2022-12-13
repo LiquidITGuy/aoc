@@ -1,4 +1,4 @@
-const { runs, splitIntoSameSizeParts, findLetterInCommon, priorityOfLetter } = require('../day3')
+const { runs, splitIntoSameSizeParts, priorityOfLetter } = require('../day3')
 const CARACTERISATION_FILE_ENTRY = '../files/day3_test_entry.txt'
 const CARACTERISATION_EXPECTED_OUTPUT_RUN1 = 157
 const CARACTERISATION_EXPECTED_OUTPUT_RUN2 = 70
@@ -16,17 +16,6 @@ describe('day3', () => {
 		})
 		it('should split into 2 equals parts "vJrwpWtwJgWrhcsFMMfFFhFp" and return ["vJrwpWtwJgWr","hcsFMMfFFhFp"]', () => {
 			expect(splitIntoSameSizeParts('vJrwpWtwJgWrhcsFMMfFFhFp')).toEqual(['vJrwpWtwJgWr','hcsFMMfFFhFp'])
-		})
-	})
-	describe('#findLetterInCommon', function () {
-		it('should find o in ["to","do"]', () => {
-			expect(findLetterInCommon(['to', 'do'])).toEqual('o')
-		})
-		it('should find z in ["zjixgcèvz§(è!èic","OUHGBTUVFRYTUJzYH78IU"]', () => {
-			expect(findLetterInCommon(['zjixgcèvz§(è!èic', 'OUHGBTUVFRYTUJzYH78IU'])).toEqual('z')
-		})
-		it('should find undefined in ["ABC","abc"]', () => {
-			expect(findLetterInCommon(['ABC', 'abc'])).toEqual(undefined)
 		})
 	})
 	describe('#priorityOfLetter', function () {
