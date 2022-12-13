@@ -12,6 +12,12 @@ const CHOICES = {
 	SCISSORS: 'SCISSORS',
 }
 
+const END_OF_ROUND_CHOICES = {
+	LOOSE: 'X',
+	DRAW: 'Y',
+	WIN: 'Z',
+}
+
 const POSSIBILITIES = {
 	LOOSE: 'LOOSE',
 	DRAW: 'DRAW',
@@ -141,6 +147,29 @@ const run = async (filename = DEFAULT_FILE) => {
 	return board.player2score
 }
 
+const ConvertInputRound2 = (playerOneInput, roundResultInput) => {
+	const playerOneChoice = PLAYERS_INPUT_CONVERSION(playerOneInput)
+	if(roundResultInput === END_OF_ROUND_CHOICES.DRAW) {
+		return [playerOneChoice, playerOneChoice]
+	}
+	const indexOf = Object.values(CHOICES).indexOf(playerOneChoice)
+	if(roundResultInput === END_OF_ROUND_CHOICES.LOOSE) {
+		let index = (indexOf-1)%3
+		if (index === -1) {
+			index = 2
+		}
+		return [playerOneChoice, Object.values(CHOICES)[index]]
+	}
+	if(roundResultInput === END_OF_ROUND_CHOICES.WIN) {
+		return [playerOneChoice, Object.values(CHOICES)[(indexOf+1)%3]]
+	}
+}
+const run2 = async (filename = DEFAULT_FILE) => {
+	const convertInput = ConvertInputRound2
+	const board = await init(filename, convertInput)
+	return board.player2score
+}
 
-const runs = [run]
-module.exports = { runs }
+
+const runs = [run, run2]
+module.exports = { runs, ConvertInputRound2}

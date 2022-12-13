@@ -11,3 +11,8 @@ This works well, but I don't need any scalability for now (and class with getter
 This time I do it with class.
 It could be way better by putting the scorer as a full class which is injected into the boardgame to respect the SOLID principle.
 But for now the goal is to see if the second part is easy to do with thoses classes.
+### Part 2
+I choose to keep the principle of a board game with two players input, so I will not change the board but only the input of the player. I will compute the second player input by the readed input and do not change the rules
+
+## Break
+I had to make a break since few days. So now I will keep the challenge and extend it until january the 13 one solve by day
