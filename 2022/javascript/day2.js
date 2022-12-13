@@ -172,4 +172,4 @@ const run2 = async (filename = DEFAULT_FILE) => {
 
 
 const runs = [run, run2]
-module.exports = { runs, ConvertInputRound2}
+module.exports = { runs, ConvertInputRound2 }

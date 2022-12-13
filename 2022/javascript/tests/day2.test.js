@@ -46,7 +46,7 @@ describe('#ConvertInputRound2', () => {
 			firstInput = INPUT.SCISSORS
 			expect (ConvertInputRound2(firstInput, secondInput)).toEqual([CHOICES.SCISSORS, CHOICES.SCISSORS])
 		})
-	});
+	})
 	describe('with a loose', () => {
 		beforeEach(() => {
 			secondInput = INPUT.LOOSE
@@ -63,7 +63,7 @@ describe('#ConvertInputRound2', () => {
 			firstInput = INPUT.SCISSORS
 			expect (ConvertInputRound2(firstInput, secondInput)).toEqual([CHOICES.SCISSORS, CHOICES.PAPER])
 		})
-	});
+	})
 	describe('with a win', () => {
 		beforeEach(() => {
 			secondInput = INPUT.WIN
@@ -80,5 +80,5 @@ describe('#ConvertInputRound2', () => {
 			firstInput = INPUT.PAPER
 			expect (ConvertInputRound2(firstInput, secondInput)).toEqual([CHOICES.PAPER, CHOICES.SCISSORS])
 		})
-	});
+	})
 })
