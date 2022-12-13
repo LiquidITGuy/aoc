@@ -10,6 +10,9 @@ describe('day3', () => {
 		it('should split into 2 equals parts "toto" and return ["to","to"]', () => {
 			expect(splitIntoSameSizeParts('toto')).toEqual(['to','to'])
 		})
+		it('should split into 2 equals parts "vJrwpWtwJgWrhcsFMMfFFhFp" and return ["vJrwpWtwJgWr","hcsFMMfFFhFp"]', () => {
+			expect(splitIntoSameSizeParts('vJrwpWtwJgWrhcsFMMfFFhFp')).toEqual(['vJrwpWtwJgWr','hcsFMMfFFhFp'])
+		})
 	})
 	describe('#findLetterInCommon', function () {
 		it('should find o in ["to","do"]', () => {
