@@ -31,8 +31,8 @@ class Section {
 			return this.begin.toString()
 		}
 		let string = ''
-		let i = this.begin;
-		const end = this.end;
+		let i = this.begin
+		const end = this.end
 		while (i<=end){
 			string+=i.toString()
 			i++
@@ -44,11 +44,15 @@ class Section {
 		return this._includes(section) || this._isIncludesIn(section)
 	}
 
+	isDifferentOf(section) {
+		return this.toString() !== section.toString()
+	}
+
 	_includes(section) {
-		return this._stringify().includes(section.toString())
+		return this.begin <= section.begin && this.end >= section.end
 	}
 	_isIncludesIn(section) {
-		return section.toString().includes(this._stringify())
+		return this.begin >= section.begin && this.end <= section.end
 	}
 
 	toString() {

@@ -26,3 +26,9 @@ This time I choose a more reusable code instead of a more performance one.
 I will do fot his time a mix of class and fp (not so cool to read) but it will be usefull to choose my next days style.
 
 It seems that's I didn't fully understand the rules in my first guess (current commit if you want to check), my guess is 507.
+
+>That's not the right answer; your answer is too high. Curiously, it's the right answer for someone else; you might be logged in to the wrong account or just unlucky. In any case, you need to be using your puzzle input. If you're stuck, make sure you're using the full input data; there are also some general tips on the about page, or you can ask for hints on the subreddit. Please wait one minute before trying again. (You guessed 507.)
+
+Result (483) by excluding similar section is incorrect too. 
+
+I tried to change my approach to prevent fake overlapping with strings (with my first approach I use string to compare 1234 with 12345, it may cause some fakes overlap (cf unit tests))
