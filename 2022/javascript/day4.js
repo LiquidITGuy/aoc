@@ -43,7 +43,12 @@ class Section {
 	includesOrIsIncludesIn(section) {
 		return this._includes(section) || this._isIncludesIn(section)
 	}
-
+	isOverlapped (section) {
+		if(this.end > section.end) {
+			return this.begin <= section.end
+		}
+			return section.begin <= this.end
+	}
 	isDifferentOf(section) {
 		return this.toString() !== section.toString()
 	}
@@ -78,6 +83,17 @@ const run =  async (filename = DEFAULT_FILE) => {
 	})
 	return numberOfSectionsIncludes
 }
+const run2 =  async (filename = DEFAULT_FILE) => {
+	let numberOfSectionsOverlapped = 0
+	const lines = await init(filename)
+	const sections = lines.map(line => createSections(line))
+	sections.forEach(([firstSection, secondSection]) => {
+		if(firstSection.isOverlapped(secondSection)) {
+			numberOfSectionsOverlapped++
+		}
+	})
+	return numberOfSectionsOverlapped
+}
 
-const runs = [run]
+const runs = [run, run2]
 module.exports = { runs, Section }

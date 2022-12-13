@@ -17,10 +17,11 @@ I choose to keep the principle of a board game with two players input, so I will
 ## Break
 I had to make a break since few days. So now I will keep the challenge and extend it until january the 13 one solve by day
 
-### Part 3
+## Day 3
 No reflexion for this part I just made a refactoring to use reduce and optimize my code
 
-### Part 4
+## Day 4
+### Part 1
 For this challenge I choose to split the initialization and the run. Regarding the last days I'm disappointed with the code duplication.
 This time I choose a more reusable code instead of a more performance one.
 I will do fot his time a mix of class and fp (not so cool to read) but it will be usefull to choose my next days style.
@@ -32,3 +33,8 @@ It seems that's I didn't fully understand the rules in my first guess (current c
 Result (483) by excluding similar section is incorrect too. 
 
 I tried to change my approach to prevent fake overlapping with strings (with my first approach I use string to compare 1234 with 12345, it may cause some fakes overlap (cf unit tests))
+
+### Part 2
+For the second part of this challenge it has been really easier. I just had to add with tdd a new method and use it.
+As I was thinking split the initialization of the run and using some class will do a better job for second parts.
+I even think about making some change into my main script of run to improve it, but it will be after the end of the challenge.
