@@ -47,7 +47,7 @@ class Section {
 		if(this.end > section.end) {
 			return this.begin <= section.end
 		}
-			return section.begin <= this.end
+		return section.begin <= this.end
 	}
 	isDifferentOf(section) {
 		return this.toString() !== section.toString()

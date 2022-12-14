@@ -115,7 +115,7 @@ describe('Section',() => {
 				expect(firstSection.isOverlapped(secondSection)).toBe(expectedResult)
 			})
 
-		});
+		})
 		describe('with a end section for the second section bigger than the first section', function () {
 			it('should return true if the first section end is bigger than the begin of the second one', () => {
 				const expectedResult = true
@@ -136,7 +136,7 @@ describe('Section',() => {
 				expect(firstSection.isOverlapped(secondSection)).toBe(expectedResult)
 			})
 
-		});
+		})
 		describe('edge case', () => {
 			it('should return true if the begin of the second section is equal of the end of the first one', () => {
 				const expectedResult = true
