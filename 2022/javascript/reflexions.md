@@ -45,4 +45,7 @@ I find this day interesting because this is the first one who needs to really se
 I think this day will be harder be more interesting.
 
 ### Part 1
-I'm not verry proud of this code but this was funny to play with regex
+I'm not very proud of this code but this was funny to play with regex
+
+### Part 2
+In this part I just had to change unit LIFO (with pop) by a group took (concat)

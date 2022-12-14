@@ -47,9 +47,24 @@ class SupplyStack {
 		}
 	}
 
+	doOneMoveLIFO(move) {
+		const stackToTake = this.stacks[move.from-1]
+		const stackToPut = this.stacks[move.to-1]
+		const takenStack = []
+		for (let i = 0; i<move.quantity; i++) {
+			takenStack.unshift(stackToTake.pop())
+		}
+		this.stacks[move.to-1] = stackToPut.concat(takenStack)
+	}
+
 	doAllQueuedMove() {
 		while(this.moves.length) {
 			this.doOneMove(this.moves.pop())
+		}
+	}
+	doAllQueuedMoveLIFO() {
+		while(this.moves.length) {
+			this.doOneMoveLIFO(this.moves.pop())
 		}
 	}
 	unshiftMove(move) {
@@ -97,6 +112,11 @@ const run =  async (filename = DEFAULT_FILE) => {
 	supplyStack.doAllQueuedMove()
 	return supplyStack.toString()
 }
+const run2 =  async (filename = DEFAULT_FILE) => {
+	const supplyStack = await init(filename)
+	supplyStack.doAllQueuedMoveLIFO()
+	return supplyStack.toString()
+}
 
-const runs = [run]
+const runs = [run, run2]
 module.exports = { runs, SuplyStack: SupplyStack, convertLineStack, isLineOFdelimitation }
