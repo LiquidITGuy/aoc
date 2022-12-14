@@ -38,3 +38,11 @@ I tried to change my approach to prevent fake overlapping with strings (with my 
 For the second part of this challenge it has been really easier. I just had to add with tdd a new method and use it.
 As I was thinking split the initialization of the run and using some class will do a better job for second parts.
 I even think about making some change into my main script of run to improve it, but it will be after the end of the challenge.
+
+
+## Day 5
+I find this day interesting because this is the first one who needs to really separate the init and the run (not only for code readability but also for usage)
+I think this day will be harder be more interesting.
+
+### Part 1
+I'm not verry proud of this code but this was funny to play with regex
