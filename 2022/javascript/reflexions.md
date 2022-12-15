@@ -49,3 +49,7 @@ I'm not very proud of this code but this was funny to play with regex
 
 ### Part 2
 In this part I just had to change unit LIFO (with pop) by a group took (concat)
+
+# Day 6
+I tried to make on my morning routine this challenge, but I'm not sure to totally understand the rules.
+For today (15 december), I have sometimes so, I think I will do some commit on open source instead of making the challenge.
